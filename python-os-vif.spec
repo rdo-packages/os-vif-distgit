@@ -17,7 +17,7 @@ Summary:    OpenStack os-vif library
 License:    ASL 2.0
 URL:        http://launchpad.net/%{library}/
 
-Source0:    http://tarballs.openstack.org/%{library}/%{library}-master.tar.gz
+Source0:    http://tarballs.openstack.org/%{library}/%{library}-%{upstream_version}.tar.gz
 
 BuildArch:  noarch
 
