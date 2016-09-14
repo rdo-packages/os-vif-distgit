@@ -11,8 +11,8 @@
 %global module os_vif
 
 Name:       python-%{library}
-Version:    XXX
-Release:    XXX
+Version:    1.2.1
+Release:    1%{?dist}
 Summary:    OpenStack os-vif library
 License:    ASL 2.0
 URL:        http://launchpad.net/%{library}/
@@ -208,3 +208,6 @@ rm -rf .testrepository
 %endif # with_python3
 
 %changelog
+* Wed Sep 14 2016 Haikel Guemar <hguemar@fedoraproject.org> 1.2.1-1
+- Update to 1.2.1
+
