@@ -1,5 +1,5 @@
-# UUID          Group Name
-False 	Non-Interactive Users
-e4597728069682a20294a4d20e892a5332ad6a5a       	openstack/os-vif-distgit-core
-48c0ef8e5557b10884918530d2c225969ab8e473        	openstack/os-vif-distgit-ptl
-global:Registered-Users		Registered Users
+# UUID                                  	Group Name
+#
+48c0ef8e5557b10884918530d2c225969ab8e473	openstack/os-vif-distgit-ptl
+e4597728069682a20294a4d20e892a5332ad6a5a	openstack/os-vif-distgit-core
+global:Registered-Users                 	Registered Users
