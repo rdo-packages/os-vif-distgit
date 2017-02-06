@@ -43,14 +43,14 @@ BuildRequires:  python-oslo-versionedobjects
 BuildRequires:  python2-oslo-versionedobjects-tests
 
 Requires:   python-pbr >= 1.6
-Requires:   python-netaddr >= 0.7.12
+Requires:   python-netaddr >= 0.7.13
 Requires:   python-oslo-config >= 2:3.14.0
-Requires:   python-oslo-log >= 1.14.0
+Requires:   python-oslo-log >= 3.11.0
 Requires:   python-oslo-i18n >= 2.1.0
 Requires:   python-oslo-privsep >=  1.9.0
 Requires:   python-oslo-versionedobjects >= 1.13.0
 Requires:   python-six >= 1.9.0
-Requires:   python-stevedore >= 1.16.0
+Requires:   python-stevedore >= 1.17.1
 Requires:   python-oslo-concurrency >= 3.11.0
 
 %description -n python2-%{library}
@@ -110,14 +110,14 @@ BuildRequires:  python3-oslo-versionedobjects
 BuildRequires:  python3-oslo-versionedobjects-tests
 
 Requires:   python3-pbr >= 1.6
-Requires:   python3-netaddr >= 0.7.12
+Requires:   python3-netaddr >= 0.7.13
 Requires:   python3-oslo-config >= 2:3.14.0
-Requires:   python3-oslo-log >= 1.14.0
+Requires:   python3-oslo-log >= 3.11.0
 Requires:   python3-oslo-i18n >= 2.1.0
 Requires:   python3-oslo-privsep >=  1.9.0
 Requires:   python3-oslo-versionedobjects >= 1.13.0
 Requires:   python3-six >= 1.9.0
-Requires:   python3-stevedore >= 1.16.0
+Requires:   python3-stevedore >= 1.17.1
 Requires:   python3-oslo-concurrency >= 3.11.0
 
 %description -n python3-%{library}
