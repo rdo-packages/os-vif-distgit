@@ -29,7 +29,6 @@ BuildRequires:  python2-devel
 BuildRequires:  python-pbr
 BuildRequires:  python-setuptools
 BuildRequires:  git
-BuildRequires:  python-hacking
 BuildRequires:  python-subunit
 BuildRequires:  python-oslotest
 BuildRequires:  python-testrepository
@@ -59,7 +58,6 @@ A library for plugging and unplugging virtual interfaces in OpenStack.
 %package -n python2-%{library}-tests
 Summary:    OpenStack os-vif library tests
 Requires:   python2-%{library} = %{version}-%{release}
-Requires:   python-hacking
 Requires:   python-subunit
 Requires:   python-oslotest
 Requires:   python-testrepository
@@ -94,7 +92,6 @@ BuildRequires:  python3-devel
 BuildRequires:  python3-pbr
 BuildRequires:  python3-setuptools
 BuildRequires:  git
-BuildRequires:  python3-hacking
 BuildRequires:  python3-subunit
 BuildRequires:  python3-oslotest
 BuildRequires:  python3-testrepository
@@ -123,7 +120,6 @@ A library for plugging and unplugging virtual interfaces in OpenStack.
 %package -n python3-%{library}-tests
 Summary:    OpenStack os-vif library tests
 Requires:   python3-%{library} = %{version}-%{release}
-Requires:   python3-hacking
 Requires:   python3-subunit
 Requires:   python3-oslotest
 Requires:   python3-testrepository
