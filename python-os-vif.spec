@@ -200,3 +200,4 @@ rm -rf .testrepository
 %endif # with_python3
 
 %changelog
+# REMOVEME: error caused by commit http://git.openstack.org/cgit/openstack/os-vif/commit/?id=dff9093ab682d798e6165840cfae234f2a5372f5
