@@ -31,6 +31,8 @@ BuildRequires:  python-setuptools
 BuildRequires:  git
 BuildRequires:  python-subunit
 BuildRequires:  python-oslotest
+BuildRequires:  python-os-testr
+BuildRequires:  python-pyroute2
 BuildRequires:  python-testrepository
 BuildRequires:  python-testscenarios
 BuildRequires:  python-testtools
@@ -47,6 +49,7 @@ Requires:   python-oslo-log >= 3.22.0
 Requires:   python-oslo-i18n >= 2.1.0
 Requires:   python-oslo-privsep >=  1.9.0
 Requires:   python-oslo-versionedobjects >= 1.17.0
+Requires:   python-pyroute2
 Requires:   python-six >= 1.9.0
 Requires:   python-stevedore >= 1.20.0
 Requires:   python-oslo-concurrency >= 3.11.0
@@ -60,6 +63,7 @@ Summary:    OpenStack os-vif library tests
 Requires:   python2-%{library} = %{version}-%{release}
 Requires:   python-subunit
 Requires:   python-oslotest
+Requires:   python-os-testr
 Requires:   python-testrepository
 Requires:   python-testscenarios
 Requires:   python-testtools
@@ -94,6 +98,8 @@ BuildRequires:  python3-setuptools
 BuildRequires:  git
 BuildRequires:  python3-subunit
 BuildRequires:  python3-oslotest
+BuildRequires:  python3-os-testr
+BuildRequires:  python3-pyroute2
 BuildRequires:  python3-testrepository
 BuildRequires:  python3-testscenarios
 BuildRequires:  python3-testtools
@@ -110,6 +116,7 @@ Requires:   python3-oslo-log >= 3.22.0
 Requires:   python3-oslo-i18n >= 2.1.0
 Requires:   python3-oslo-privsep >=  1.9.0
 Requires:   python3-oslo-versionedobjects >= 1.17.0
+Requires:   python3-pyroute2
 Requires:   python3-six >= 1.9.0
 Requires:   python3-stevedore >= 1.20.0
 Requires:   python3-oslo-concurrency >= 3.11.0
@@ -122,6 +129,7 @@ Summary:    OpenStack os-vif library tests
 Requires:   python3-%{library} = %{version}-%{release}
 Requires:   python3-subunit
 Requires:   python3-oslotest
+Requires:   python3-os-testr
 Requires:   python3-testrepository
 Requires:   python3-testscenarios
 Requires:   python3-testtools
@@ -163,11 +171,14 @@ rm -rf doc/build/html/.{doctrees,buildinfo}
 %endif
 
 %check
+export OS_TEST_PATH='./os_vif/tests/unit'
+export PATH=$PATH:$RPM_BUILD_ROOT/usr/bin
+export PYTHONPATH=$PWD
+stestr --test-path $OS_TEST_PATH run
 %if 0%{?with_python3}
-%{__python3} setup.py test
-rm -rf .testrepository
+rm -rf .stestr
+stestr-3 --test-path $OS_TEST_PATH run
 %endif
-%{__python2} setup.py test
 
 %files -n python2-%{library}
 %license LICENSE
