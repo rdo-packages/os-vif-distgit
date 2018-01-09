@@ -31,6 +31,7 @@ BuildRequires:  python-setuptools
 BuildRequires:  git
 BuildRequires:  python-subunit
 BuildRequires:  python-oslotest
+BuildRequires:  python-pyroute2
 BuildRequires:  python-testrepository
 BuildRequires:  python-testscenarios
 BuildRequires:  python-testtools
@@ -47,6 +48,7 @@ Requires:   python-oslo-log >= 3.22.0
 Requires:   python-oslo-i18n >= 2.1.0
 Requires:   python-oslo-privsep >=  1.9.0
 Requires:   python-oslo-versionedobjects >= 1.17.0
+Requires:   python-pyroute2
 Requires:   python-six >= 1.9.0
 Requires:   python-stevedore >= 1.20.0
 Requires:   python-oslo-concurrency >= 3.11.0
@@ -94,6 +96,7 @@ BuildRequires:  python3-setuptools
 BuildRequires:  git
 BuildRequires:  python3-subunit
 BuildRequires:  python3-oslotest
+BuildRequires:  python3-pyroute2
 BuildRequires:  python3-testrepository
 BuildRequires:  python3-testscenarios
 BuildRequires:  python3-testtools
@@ -110,6 +113,7 @@ Requires:   python3-oslo-log >= 3.22.0
 Requires:   python3-oslo-i18n >= 2.1.0
 Requires:   python3-oslo-privsep >=  1.9.0
 Requires:   python3-oslo-versionedobjects >= 1.17.0
+Requires:   python3-pyroute2
 Requires:   python3-six >= 1.9.0
 Requires:   python3-stevedore >= 1.20.0
 Requires:   python3-oslo-concurrency >= 3.11.0
