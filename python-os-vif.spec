@@ -211,3 +211,4 @@ stestr-3 --test-path $OS_TEST_PATH run
 %endif # with_python3
 
 %changelog
+# REMOVEME: error caused by commit http://git.openstack.org/cgit/openstack/os-vif/commit/?id=f4329ffe1805452a790f6116d10164c3658562fa
