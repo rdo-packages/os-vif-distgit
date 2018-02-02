@@ -26,33 +26,42 @@ Summary:    OpenStack os-vif library
 %{?python_provide:%python_provide python2-%{library}}
 
 BuildRequires:  python2-devel
-BuildRequires:  python-pbr
-BuildRequires:  python-setuptools
+BuildRequires:  python2-pbr
+BuildRequires:  python2-setuptools
 BuildRequires:  git
-BuildRequires:  python-subunit
-BuildRequires:  python-oslotest
-BuildRequires:  python-os-testr
-BuildRequires:  python-pyroute2
+BuildRequires:  python2-subunit
+BuildRequires:  python2-oslotest
+BuildRequires:  python2-os-testr
+BuildRequires:  python2-pyroute2
+BuildRequires:  python2-testtools
+BuildRequires:  python2-oslo-log
+BuildRequires:  python2-oslo-concurrency
+BuildRequires:  python2-oslo-privsep
+BuildRequires:  python2-oslo-versionedobjects
+BuildRequires:  python2-oslo-versionedobjects-tests
+%if 0%{?fedora} > 0
+BuildRequires:  python2-testrepository
+BuildRequires:  python2-testscenarios
+%else
 BuildRequires:  python-testrepository
 BuildRequires:  python-testscenarios
-BuildRequires:  python-testtools
-BuildRequires:  python-oslo-log
-BuildRequires:  python-oslo-concurrency
-BuildRequires:  python-oslo-privsep
-BuildRequires:  python-oslo-versionedobjects
-BuildRequires:  python2-oslo-versionedobjects-tests
+%endif
 
-Requires:   python-pbr >= 2.0.0
-Requires:   python-netaddr >= 0.7.13
-Requires:   python-oslo-config >= 2:4.0.0
-Requires:   python-oslo-log >= 3.22.0
-Requires:   python-oslo-i18n >= 2.1.0
-Requires:   python-oslo-privsep >=  1.9.0
-Requires:   python-oslo-versionedobjects >= 1.17.0
-Requires:   python-pyroute2
-Requires:   python-six >= 1.9.0
-Requires:   python-stevedore >= 1.20.0
-Requires:   python-oslo-concurrency >= 3.11.0
+Requires:   python2-pbr >= 2.0.0
+Requires:   python2-oslo-config >= 2:5.1.0
+Requires:   python2-oslo-log >= 3.30.0
+Requires:   python2-oslo-i18n >= 3.15.3
+Requires:   python2-oslo-privsep >= 1.23.0
+Requires:   python2-oslo-versionedobjects >= 1.28.0
+Requires:   python2-pyroute2
+Requires:   python2-six >= 1.10.0
+Requires:   python2-stevedore >= 1.20.0
+Requires:   python2-oslo-concurrency >= 3.20.0
+%if 0%{?fedora} > 0
+Requires:   python2-netaddr >= 0.7.18
+%else
+Requires:   python-netaddr >= 0.7.18
+%endif
 
 %description -n python2-%{library}
 A library for plugging and unplugging virtual interfaces in OpenStack.
@@ -61,13 +70,18 @@ A library for plugging and unplugging virtual interfaces in OpenStack.
 %package -n python2-%{library}-tests
 Summary:    OpenStack os-vif library tests
 Requires:   python2-%{library} = %{version}-%{release}
-Requires:   python-subunit
-Requires:   python-oslotest
-Requires:   python-os-testr
+Requires:   python2-subunit
+Requires:   python2-oslotest
+Requires:   python2-os-testr
+Requires:   python2-testtools
+Requires:   python2-oslo-versionedobjects-tests
+%if 0%{?fedora} > 0
+Requires:   python2-testrepository
+Requires:   python2-testscenarios
+%else
 Requires:   python-testrepository
 Requires:   python-testscenarios
-Requires:   python-testtools
-Requires:   python2-oslo-versionedobjects-tests
+%endif
 
 
 %description -n python2-%{library}-tests
@@ -78,9 +92,9 @@ This package contains the library test files.
 %package -n python-%{library}-doc
 Summary:    OpenStack os-vif library documentation
 
-BuildRequires: python-sphinx
-BuildRequires: python-openstackdocstheme
-BuildRequires: python-reno
+BuildRequires: python2-sphinx
+BuildRequires: python2-openstackdocstheme
+BuildRequires: python2-reno
 
 %description -n python-%{library}-doc
 A library for plugging and unplugging virtual interfaces in OpenStack.
@@ -110,16 +124,16 @@ BuildRequires:  python3-oslo-versionedobjects
 BuildRequires:  python3-oslo-versionedobjects-tests
 
 Requires:   python3-pbr >= 2.0.0
-Requires:   python3-netaddr >= 0.7.13
-Requires:   python3-oslo-config >= 2:4.0.0
-Requires:   python3-oslo-log >= 3.22.0
-Requires:   python3-oslo-i18n >= 2.1.0
-Requires:   python3-oslo-privsep >=  1.9.0
-Requires:   python3-oslo-versionedobjects >= 1.17.0
+Requires:   python3-netaddr >= 0.7.18
+Requires:   python3-oslo-config >= 2:5.1.0
+Requires:   python3-oslo-log >= 3.30.0
+Requires:   python3-oslo-i18n >= 3.15.3
+Requires:   python3-oslo-privsep >= 1.23.0
+Requires:   python3-oslo-versionedobjects >= 1.28.0
 Requires:   python3-pyroute2
-Requires:   python3-six >= 1.9.0
+Requires:   python3-six >= 1.10.0
 Requires:   python3-stevedore >= 1.20.0
-Requires:   python3-oslo-concurrency >= 3.11.0
+Requires:   python3-oslo-concurrency >= 3.20.0
 
 %description -n python3-%{library}
 A library for plugging and unplugging virtual interfaces in OpenStack.
