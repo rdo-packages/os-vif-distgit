@@ -1,0 +1,8 @@
+Code-Review+2: Alfredo Moralejo <amoralej@redhat.com>
+Verified+2: Alfredo Moralejo <amoralej@redhat.com>
+Workflow+1: Alfredo Moralejo <amoralej@redhat.com>
+Submitted-by: Alfredo Moralejo <amoralej@redhat.com>
+Submitted-at: Mon, 30 Jul 2018 12:59:31 +0000
+Reviewed-on: https://review.rdoproject.org/r/15060
+Project: openstack/os-vif-distgit
+Branch: refs/heads/rpm-master
