@@ -200,6 +200,7 @@ stestr-3 --test-path $OS_TEST_PATH run
 %{python2_sitelib}/%{module}
 %{python2_sitelib}/vif_plug_linux_bridge
 %{python2_sitelib}/vif_plug_ovs
+%{python2_sitelib}/vif_plug_noop
 %{python2_sitelib}/%{module}-*.egg-info
 %exclude %{python2_sitelib}/*/tests
 
@@ -217,6 +218,7 @@ stestr-3 --test-path $OS_TEST_PATH run
 %{python3_sitelib}/%{module}
 %{python3_sitelib}/vif_plug_linux_bridge
 %{python3_sitelib}/vif_plug_ovs
+%{python3_sitelib}/vif_plug_noop
 %{python3_sitelib}/%{module}-*.egg-info
 %exclude %{python3_sitelib}/*/tests
 
@@ -226,3 +228,4 @@ stestr-3 --test-path $OS_TEST_PATH run
 %endif # with_python3
 
 %changelog
+# REMOVEME: error caused by commit http://git.openstack.org/cgit/openstack/os-vif/commit/?id=7e73f50cc5c85eb208a8ade6d5daec878b217465
