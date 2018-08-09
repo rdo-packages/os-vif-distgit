@@ -11,8 +11,8 @@
 %global module os_vif
 
 Name:       python-%{library}
-Version:    XXX
-Release:    XXX
+Version:    1.11.1
+Release:    1%{?dist}
 Summary:    OpenStack os-vif library
 License:    ASL 2.0
 URL:        http://launchpad.net/%{library}/
@@ -228,3 +228,6 @@ stestr-3 --test-path $OS_TEST_PATH run
 %endif # with_python3
 
 %changelog
+* Thu Aug 09 2018 RDO <dev@lists.rdoproject.org> 1.11.1-1
+- Update to 1.11.1
+
