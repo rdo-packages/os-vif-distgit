@@ -39,6 +39,7 @@ BuildRequires:  python2-oslo-concurrency
 BuildRequires:  python2-oslo-privsep
 BuildRequires:  python2-oslo-versionedobjects
 BuildRequires:  python2-oslo-versionedobjects-tests
+BuildRequires:  python2-ovsdbapp
 %if 0%{?fedora} > 0
 BuildRequires:  python2-testrepository
 BuildRequires:  python2-testscenarios
@@ -57,6 +58,7 @@ Requires:   python2-pyroute2
 Requires:   python2-six >= 1.10.0
 Requires:   python2-stevedore >= 1.20.0
 Requires:   python2-oslo-concurrency >= 3.20.0
+Requires:   python2-ovsdbapp >= 0.12.1
 %if 0%{?fedora} > 0
 Requires:   python2-netaddr >= 0.7.18
 %else
@@ -122,6 +124,7 @@ BuildRequires:  python3-oslo-concurrency
 BuildRequires:  python3-oslo-privsep
 BuildRequires:  python3-oslo-versionedobjects
 BuildRequires:  python3-oslo-versionedobjects-tests
+BuildRequires:  python3-ovsdbapp
 
 Requires:   python3-pbr >= 2.0.0
 Requires:   python3-netaddr >= 0.7.18
@@ -148,7 +151,7 @@ Requires:   python3-testrepository
 Requires:   python3-testscenarios
 Requires:   python3-testtools
 Requires:   python3-oslo-versionedobjects-tests
-
+Requires:   python3-ovsdbapp >= 0.12.1
 
 %description -n python3-%{library}-tests
 A library for plugging and unplugging virtual interfaces in OpenStack.
