@@ -1,11 +1,15 @@
-%{!?upstream_version: %global upstream_version %{version}%{?milestone}}
-
-# Python3 support in OpenStack starts with version 3.5,
-# which is only in Fedora 24+
-%if 0%{?fedora} >= 24
-%global with_python3 1
+# Macros for py2/py3 compatibility
+%if 0%{?fedora} || 0%{?rhel} > 7
+%global pyver %{python3_pkgversion}
+%else
+%global pyver 2
 %endif
-
+%global pyver_bin python%{pyver}
+%global pyver_sitelib %python%{pyver}_sitelib
+%global pyver_install %py%{pyver}_install
+%global pyver_build %py%{pyver}_build
+# End of macros for py2/py3 compatibility
+%{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 
 %global library os-vif
 %global module os_vif
@@ -21,72 +25,58 @@ Source0:    http://tarballs.openstack.org/%{library}/%{module}-%{upstream_versio
 
 BuildArch:  noarch
 
-%package -n python2-%{library}
+%package -n python%{pyver}-%{library}
 Summary:    OpenStack os-vif library
-%{?python_provide:%python_provide python2-%{library}}
+%{?python_provide:%python_provide python%{pyver}-%{library}}
 
-BuildRequires:  python2-devel
-BuildRequires:  python2-pbr
-BuildRequires:  python2-setuptools
+BuildRequires:  python%{pyver}-devel
+BuildRequires:  python%{pyver}-pbr
+BuildRequires:  python%{pyver}-setuptools
 BuildRequires:  git
-BuildRequires:  python2-subunit
-BuildRequires:  python2-oslotest
-BuildRequires:  python2-os-testr
-BuildRequires:  python2-pyroute2
-BuildRequires:  python2-testtools
-BuildRequires:  python2-oslo-log
-BuildRequires:  python2-oslo-concurrency
-BuildRequires:  python2-oslo-privsep
-BuildRequires:  python2-oslo-versionedobjects
-BuildRequires:  python2-oslo-versionedobjects-tests
-BuildRequires:  python2-ovsdbapp
-%if 0%{?fedora} > 0
-BuildRequires:  python2-testrepository
-BuildRequires:  python2-testscenarios
-%else
-BuildRequires:  python-testrepository
-BuildRequires:  python-testscenarios
-%endif
+BuildRequires:  python%{pyver}-subunit
+BuildRequires:  python%{pyver}-oslotest
+BuildRequires:  python%{pyver}-os-testr
+BuildRequires:  python%{pyver}-pyroute2
+BuildRequires:  python%{pyver}-testtools
+BuildRequires:  python%{pyver}-oslo-log
+BuildRequires:  python%{pyver}-oslo-concurrency
+BuildRequires:  python%{pyver}-oslo-privsep
+BuildRequires:  python%{pyver}-oslo-versionedobjects
+BuildRequires:  python%{pyver}-oslo-versionedobjects-tests
+BuildRequires:  python%{pyver}-ovsdbapp
+BuildRequires:  python%{pyver}-testrepository
+BuildRequires:  python%{pyver}-testscenarios
 
-Requires:   python2-pbr >= 2.0.0
-Requires:   python2-oslo-config >= 2:5.1.0
-Requires:   python2-oslo-log >= 3.30.0
-Requires:   python2-oslo-i18n >= 3.15.3
-Requires:   python2-oslo-privsep >= 1.23.0
-Requires:   python2-oslo-versionedobjects >= 1.28.0
-Requires:   python2-pyroute2
-Requires:   python2-six >= 1.10.0
-Requires:   python2-stevedore >= 1.20.0
-Requires:   python2-oslo-concurrency >= 3.20.0
-Requires:   python2-ovsdbapp >= 0.12.1
-%if 0%{?fedora} > 0
-Requires:   python2-netaddr >= 0.7.18
-%else
-Requires:   python-netaddr >= 0.7.18
-%endif
+Requires:   python%{pyver}-pbr >= 2.0.0
+Requires:   python%{pyver}-oslo-config >= 2:5.1.0
+Requires:   python%{pyver}-oslo-log >= 3.30.0
+Requires:   python%{pyver}-oslo-i18n >= 3.15.3
+Requires:   python%{pyver}-oslo-privsep >= 1.23.0
+Requires:   python%{pyver}-oslo-versionedobjects >= 1.28.0
+Requires:   python%{pyver}-pyroute2
+Requires:   python%{pyver}-six >= 1.10.0
+Requires:   python%{pyver}-stevedore >= 1.20.0
+Requires:   python%{pyver}-oslo-concurrency >= 3.20.0
+Requires:   python%{pyver}-ovsdbapp >= 0.12.1
+Requires:   python%{pyver}-netaddr >= 0.7.18
 
-%description -n python2-%{library}
+%description -n python%{pyver}-%{library}
 A library for plugging and unplugging virtual interfaces in OpenStack.
 
 
-%package -n python2-%{library}-tests
+%package -n python%{pyver}-%{library}-tests
 Summary:    OpenStack os-vif library tests
-Requires:   python2-%{library} = %{version}-%{release}
-Requires:   python2-subunit
-Requires:   python2-oslotest
-Requires:   python2-os-testr
-Requires:   python2-testtools
-Requires:   python2-oslo-versionedobjects-tests
-%if 0%{?fedora} > 0
-Requires:   python2-testrepository
-Requires:   python2-testscenarios
-%else
-Requires:   python-testrepository
-Requires:   python-testscenarios
-%endif
+Requires:   python%{pyver}-%{library} = %{version}-%{release}
+Requires:   python%{pyver}-subunit
+Requires:   python%{pyver}-oslotest
+Requires:   python%{pyver}-os-testr
+Requires:   python%{pyver}-testtools
+Requires:   python%{pyver}-oslo-versionedobjects-tests
+Requires:   python%{pyver}-testrepository
+Requires:   python%{pyver}-testscenarios
 
 
-%description -n python2-%{library}-tests
+%description -n python%{pyver}-%{library}-tests
 A library for plugging and unplugging virtual interfaces in OpenStack.
 
 This package contains the library test files.
@@ -94,72 +84,14 @@ This package contains the library test files.
 %package -n python-%{library}-doc
 Summary:    OpenStack os-vif library documentation
 
-BuildRequires: python2-sphinx
-BuildRequires: python2-openstackdocstheme
-BuildRequires: python2-reno
+BuildRequires: python%{pyver}-sphinx
+BuildRequires: python%{pyver}-openstackdocstheme
+BuildRequires: python%{pyver}-reno
 
 %description -n python-%{library}-doc
 A library for plugging and unplugging virtual interfaces in OpenStack.
 
 This package contains the documentation.
-
-%if 0%{?with_python3}
-%package -n python3-%{library}
-Summary:    OpenStack os-vif library
-%{?python_provide:%python_provide python3-%{library}}
-
-BuildRequires:  python3-devel
-BuildRequires:  python3-pbr
-BuildRequires:  python3-setuptools
-BuildRequires:  git
-BuildRequires:  python3-subunit
-BuildRequires:  python3-oslotest
-BuildRequires:  python3-os-testr
-BuildRequires:  python3-pyroute2
-BuildRequires:  python3-testrepository
-BuildRequires:  python3-testscenarios
-BuildRequires:  python3-testtools
-BuildRequires:  python3-oslo-log
-BuildRequires:  python3-oslo-concurrency
-BuildRequires:  python3-oslo-privsep
-BuildRequires:  python3-oslo-versionedobjects
-BuildRequires:  python3-oslo-versionedobjects-tests
-BuildRequires:  python3-ovsdbapp
-
-Requires:   python3-pbr >= 2.0.0
-Requires:   python3-netaddr >= 0.7.18
-Requires:   python3-oslo-config >= 2:5.1.0
-Requires:   python3-oslo-log >= 3.30.0
-Requires:   python3-oslo-i18n >= 3.15.3
-Requires:   python3-oslo-privsep >= 1.23.0
-Requires:   python3-oslo-versionedobjects >= 1.28.0
-Requires:   python3-pyroute2
-Requires:   python3-six >= 1.10.0
-Requires:   python3-stevedore >= 1.20.0
-Requires:   python3-oslo-concurrency >= 3.20.0
-
-%description -n python3-%{library}
-A library for plugging and unplugging virtual interfaces in OpenStack.
-
-%package -n python3-%{library}-tests
-Summary:    OpenStack os-vif library tests
-Requires:   python3-%{library} = %{version}-%{release}
-Requires:   python3-subunit
-Requires:   python3-oslotest
-Requires:   python3-os-testr
-Requires:   python3-testrepository
-Requires:   python3-testscenarios
-Requires:   python3-testtools
-Requires:   python3-oslo-versionedobjects-tests
-Requires:   python3-ovsdbapp >= 0.12.1
-
-%description -n python3-%{library}-tests
-A library for plugging and unplugging virtual interfaces in OpenStack.
-
-This package contains the library test files.
-
-%endif # with_python3
-
 
 %description
 A library for plugging and unplugging virtual interfaces in OpenStack.
@@ -171,63 +103,38 @@ A library for plugging and unplugging virtual interfaces in OpenStack.
 rm -f *requirements.txt
 
 %build
-%py2_build
-%if 0%{?with_python3}
-%py3_build
-%endif
+%{pyver_build}
 
 # generate html docs
 export PYTHONPATH=.
-sphinx-build -b html doc/source doc/build/html
-# remove the sphinx-build leftovers
+sphinx-build-%{pyver} -b html doc/source doc/build/html
+# remove the sphinx-build-%{pyver} leftovers
 rm -rf doc/build/html/.{doctrees,buildinfo}
 
 %install
-%py2_install
-%if 0%{?with_python3}
-%py3_install
-%endif
+%{pyver_install}
 
 %check
 export OS_TEST_PATH='./os_vif/tests/unit'
 export PATH=$PATH:$RPM_BUILD_ROOT/usr/bin
 export PYTHONPATH=$PWD
-stestr --test-path $OS_TEST_PATH run
-%if 0%{?with_python3}
-rm -rf .stestr
-stestr-3 --test-path $OS_TEST_PATH run
-%endif
+stestr-%{pyver} --test-path $OS_TEST_PATH run
 
-%files -n python2-%{library}
+%files -n python%{pyver}-%{library}
 %license LICENSE
-%{python2_sitelib}/%{module}
-%{python2_sitelib}/vif_plug_linux_bridge
-%{python2_sitelib}/vif_plug_ovs
-%{python2_sitelib}/vif_plug_noop
-%{python2_sitelib}/%{module}-*.egg-info
-%exclude %{python2_sitelib}/*/tests
+%{pyver_sitelib}/%{module}
+%{pyver_sitelib}/vif_plug_linux_bridge
+%{pyver_sitelib}/vif_plug_ovs
+%{pyver_sitelib}/vif_plug_noop
+%{pyver_sitelib}/%{module}-*.egg-info
+%exclude %{pyver_sitelib}/*/tests
 
-%files -n python2-%{library}-tests
+%files -n python%{pyver}-%{library}-tests
 %license LICENSE
-%{python2_sitelib}/*/tests
+%{pyver_sitelib}/*/tests
 
 %files -n python-%{library}-doc
 %license LICENSE
 %doc doc/build/html README.rst
-
-%if 0%{?with_python3}
-%files -n python3-%{library}
-%license LICENSE
-%{python3_sitelib}/%{module}
-%{python3_sitelib}/vif_plug_linux_bridge
-%{python3_sitelib}/vif_plug_ovs
-%{python3_sitelib}/vif_plug_noop
-%{python3_sitelib}/%{module}-*.egg-info
-%exclude %{python3_sitelib}/*/tests
-
-%files -n python3-%{library}-tests
-%license LICENSE
-%{python3_sitelib}/*/tests
-%endif # with_python3
 
 %changelog
