@@ -10,6 +10,7 @@
 %global pyver_build %py%{pyver}_build
 # End of macros for py2/py3 compatibility
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
+%global with_doc 1
 
 %global library os-vif
 %global module os_vif
@@ -81,6 +82,7 @@ A library for plugging and unplugging virtual interfaces in OpenStack.
 
 This package contains the library test files.
 
+%if 0%{?with_doc}
 %package -n python-%{library}-doc
 Summary:    OpenStack os-vif library documentation
 
@@ -92,6 +94,7 @@ BuildRequires: python%{pyver}-reno
 A library for plugging and unplugging virtual interfaces in OpenStack.
 
 This package contains the documentation.
+%endif
 
 %description
 A library for plugging and unplugging virtual interfaces in OpenStack.
@@ -105,11 +108,13 @@ rm -f *requirements.txt
 %build
 %{pyver_build}
 
+%if 0%{?with_doc}
 # generate html docs
 export PYTHONPATH=.
 sphinx-build-%{pyver} -b html doc/source doc/build/html
 # remove the sphinx-build-%{pyver} leftovers
 rm -rf doc/build/html/.{doctrees,buildinfo}
+%endif
 
 %install
 %{pyver_install}
@@ -133,8 +138,10 @@ stestr-%{pyver} --test-path $OS_TEST_PATH run
 %license LICENSE
 %{pyver_sitelib}/*/tests
 
+%if 0%{?with_doc}
 %files -n python-%{library}-doc
 %license LICENSE
 %doc doc/build/html README.rst
+%endif
 
 %changelog
