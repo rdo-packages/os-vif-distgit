@@ -48,6 +48,7 @@ BuildRequires:  python%{pyver}-ovsdbapp
 BuildRequires:  python%{pyver}-testrepository
 BuildRequires:  python%{pyver}-testscenarios
 
+Requires:   python%{pyver}-debtcollector >= 1.19.0
 Requires:   python%{pyver}-pbr >= 2.0.0
 Requires:   python%{pyver}-oslo-config >= 2:5.1.0
 Requires:   python%{pyver}-oslo-log >= 3.30.0
