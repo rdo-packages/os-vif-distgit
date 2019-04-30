@@ -11,7 +11,7 @@
 %global module os_vif
 
 Name:       python-%{library}
-Version:    1.7.1
+Version:    1.7.2
 Release:    1%{?dist}
 Summary:    OpenStack os-vif library
 License:    ASL 2.0
@@ -208,6 +208,9 @@ rm -rf .testrepository
 %endif # with_python3
 
 %changelog
+* Tue Apr 30 2019 RDO <dev@lists.rdoproject.org> 1.7.2-1
+- Update to 1.7.2
+
 * Mon Dec 17 2018 RDO <dev@lists.rdoproject.org> 1.7.1-1
 - Update to 1.7.1
 
