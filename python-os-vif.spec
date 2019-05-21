@@ -124,7 +124,7 @@ rm -rf doc/build/html/.{doctrees,buildinfo}
 export OS_TEST_PATH='./os_vif/tests/unit'
 export PATH=$PATH:$RPM_BUILD_ROOT/usr/bin
 export PYTHONPATH=$PWD
-stestr-%{pyver} --test-path $OS_TEST_PATH run
+PYTHON=%{pyver_bin} stestr-%{pyver} --test-path $OS_TEST_PATH run
 
 %files -n python%{pyver}-%{library}
 %license LICENSE
