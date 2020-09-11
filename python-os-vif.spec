@@ -44,8 +44,7 @@ Requires:   python3-oslo-log >= 3.30.0
 Requires:   python3-oslo-i18n >= 3.15.3
 Requires:   python3-oslo-privsep >= 1.23.0
 Requires:   python3-oslo-versionedobjects >= 1.28.0
-Requires:   python3-pyroute2
-Requires:   python3-six >= 1.10.0
+Requires:   python3-pyroute2 >= 0.5.2
 Requires:   python3-stevedore >= 1.20.0
 Requires:   python3-oslo-concurrency >= 3.20.0
 Requires:   python3-ovsdbapp >= 0.12.1
