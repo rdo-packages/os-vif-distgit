@@ -35,7 +35,7 @@ Summary:    OpenStack os-vif library
 BuildRequires:  python3-devel
 BuildRequires:  python3-pbr
 BuildRequires:  python3-setuptools
-BuildRequires:  git
+BuildRequires:  git-core
 BuildRequires:  python3-subunit
 BuildRequires:  python3-oslotest
 BuildRequires:  python3-os-testr
