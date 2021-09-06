@@ -1,9 +1,9 @@
 # UUID Group Name
 global:Registered-Users	Registered Users
-e59ac21f2ad1496df911cf5e38ce39d6c6e4bb7b	openstack/os-vif-ptl
 4572c517702492251ad622a289176552a8acbbb2	rdo-superusers
-6ddfecad023c6f4fa3ac8c4d2583c502ea675a73	Non-Interactive Users
 05a678d3d4a168e149d5e8a0063bbd1b1c5526da	Administrators
-401cf37bee35d1c809d4d957e55f2a304f8eed69	rdo-provenpackagers
+6ddfecad023c6f4fa3ac8c4d2583c502ea675a73	Non-Interactive Users
+e59ac21f2ad1496df911cf5e38ce39d6c6e4bb7b	openstack/os-vif-ptl
 global:Anonymous-Users	Anonymous Users
+401cf37bee35d1c809d4d957e55f2a304f8eed69	rdo-provenpackagers
 07002eeb97dd7be57c13b06b8a7ecc72bda0010b	openstack/os-vif-core
