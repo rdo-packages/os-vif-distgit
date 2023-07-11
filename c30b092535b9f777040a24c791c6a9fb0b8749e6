@@ -68,6 +68,24 @@
       "message": "recheck",
       "revId": "c30b092535b9f777040a24c791c6a9fb0b8749e6",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "afc59d26_db04e205",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 635
+      },
+      "writtenOn": "2023-07-11T15:16:26Z",
+      "side": 1,
+      "message": "The solution I found is to export PYTHONPATH\u003d\"%{buildroot}/%{python3_sitelib}\" before running the unit test suite",
+      "parentUuid": "0e2f3dde_28b5e4fb",
+      "revId": "c30b092535b9f777040a24c791c6a9fb0b8749e6",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
     }
   ]
 }
