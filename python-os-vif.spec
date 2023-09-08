@@ -1,5 +1,5 @@
 %{!?sources_gpg: %{!?dlrn:%global sources_gpg 1} }
-%global sources_gpg_sign 0x01527a34f0d0080f8a5db8d6eb6c5df21b4b6363
+%global sources_gpg_sign 0x815AFEC729392386480E076DCC0DFE2D21C023C9
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 %global with_doc 1
 
@@ -7,7 +7,7 @@
 %global module os_vif
 
 Name:       python-%{library}
-Version:    2.7.1
+Version:    2.7.2
 Release:    1%{?dist}
 Summary:    OpenStack os-vif library
 License:    ASL 2.0
@@ -151,6 +151,9 @@ PYTHON=%{__python3} stestr-3 --test-path $OS_TEST_PATH run
 %endif
 
 %changelog
+* Fri Sep 08 2023 RDO <dev@lists.rdoproject.org> 2.7.2-1
+- Update to 2.7.2
+
 * Wed Mar 16 2022 RDO <dev@lists.rdoproject.org> 2.7.1-1
 - Update to 2.7.1
 
